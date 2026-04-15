@@ -6,7 +6,7 @@ const Friends = async () => {
     let res = await getFriends();
 
     return (
-        <div className='grid grid-cols-6 gap-10 container m-auto'>
+        <div className='grid md:grid-cols-4 grid-cols-2 sm:grid-cols-1 lg:grid-cols-6 gap-10 container m-auto'>
             {
                 res.map(fr => {
                     return <Card key={fr.id} id={fr.id} name={fr.name} image={fr.picture} contact={fr.days_since_contact} tags={fr.tags} />;
@@ -24,7 +24,7 @@ export const Card = ({ name, id, image, tags, contact }) => {
                 <h2 className="card-title block">{name}</h2>
                 <p>{contact}d ago</p>
                 <div>
-                    {tags.slice(-1,0).map((tag, index) => {
+                    {tags.map((tag, index) => {
                             return <div key={index} className="badge badge-success badge-soft  mx-2">{tag}</div>;
                         })
                     }

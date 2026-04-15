@@ -31,6 +31,7 @@ import "@/assets/Fontawesome-Pro/fonts/utility-fill-semibold.css"
 import "@/assets/Fontawesome-Pro/fonts/utility-semibold.css"
 import "@/assets/Fontawesome-Pro/fonts/whiteboard-semibold.css"
 import Navbar from "@/component/Navbar";
+import Footer from "@/component/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,7 +57,7 @@ export default async function RootLayout({ children }) {
       <body className="min-h-full flex flex-col">
         <Navbar />
         {children}
-        
+        <Footer/>
       </body>
     </html>
   );
