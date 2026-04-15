@@ -16,7 +16,7 @@ const Page = async ({ params }) => {
     let { id } = await params;
     let friendsData = await (await fetch(`http://localhost:3000/friends.json`)).json()
     let findFriend = friendsData.find(fr => fr.id === parseInt(id));
-    const { picture, name, status, bio, tags } = findFriend;
+    const { picture, name, status, bio, tags,days_since_contact,goal,next_due_date } = findFriend;
     let badgeColor = "btn-success";
     if (status == "overdue") {
         badgeColor = "btn-error ";
@@ -53,9 +53,9 @@ const Page = async ({ params }) => {
             
             <div>
                 <div className='px-2 mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10'>
-                    <Stats title={"Total"} stat={res.length} />
-                    <Stats title={"On Track"} stat={track.length} />
-                    <Stats title={"Need Attention"} stat={overdue.length} />
+                    <Stats title={"Days Since Contact"} stat={days_since_contact} />
+                    <Stats title={"Goal (Days)"} stat={goal} />
+                    <Stats title={"Next Due"} stat={next_due_date} />
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@ export const Stats = ({ title, stat }) => {
     return (
         <div className="stats shadow bg-base-100">
             <div className="stat overflow-hidden">
-                <div className={`${nunito.className} stat-value text-center `}>{stat}</div>
+                <div className={`${nunito.className} stat-value text-center text-2xl `}>{stat}</div>
                 <div className={` ${nunito.className} text-lg text-center stat-title`}>{title}</div>
             </div>
         </div>
