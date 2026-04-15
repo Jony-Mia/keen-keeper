@@ -8,7 +8,7 @@ const Stat = async () => {
     let almostDue = res.filter(fr => fr.status == "almost due");
 
     return (
-        <div className=' mx-auto container grid  md:grid-cols-2 lg:grid-cols-4 gap-10 my-10'>
+        <div className='px-2 mx-auto container grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 my-10'>
             <Stats title={"Total"} stat={res.length} />
             <Stats title={"On Track"} stat={track.length} />
             <Stats title={"Need Attention"} stat={overdue.length} />
@@ -20,7 +20,7 @@ const Stat = async () => {
 export const Stats = ({ title, stat }) => {
     return (
         <div className="stats shadow">
-            <div className="stat">
+            <div className="stat overflow-hidden">
                 <div className={`${nunito.className} stat-value text-center `}>{stat}</div>
                 <div className={` ${nunito.className} text-lg text-center stat-title`}>{title}</div>
             </div>
