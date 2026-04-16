@@ -5,13 +5,15 @@ import { Nunito } from 'next/font/google';
 import { getFriends } from '@/API/api';
 import { TimeLineContextList } from '@/state/timeContext';
 import { useParams } from 'next/navigation';
+import { toast, ToastContainer } from 'react-toastify';
 
 const nunito = Nunito({ subsets: ['latin'], weight: '600' });
 
+
 const Page = () => {
+
     const params = useParams();
     const id = parseInt(params.id, 10);
-
     const { timeline, setTimeLine } = useContext(TimeLineContextList);
     const [friend, setFriend] = useState([undefined]);
 
@@ -21,12 +23,10 @@ const Page = () => {
                 setFriend(null);
                 return;
             }
-
             const friendsData = await getFriends();
             const foundFriend = friendsData?.find(fr => fr.id === id) ?? null;
             setFriend(foundFriend);
         };
-
         loadFriend();
     }, [id]);
 
@@ -44,7 +44,21 @@ const Page = () => {
         goal,
         next_due_date
     } = friend;
-
+    const call = {
+        icon: 'far fa-phone',
+        text: 'Call',
+        name: name
+    }
+    const message = {
+        icon: 'far fa-comment',
+        text: 'Message',
+        name: name
+    }
+    const video = {
+        icon: 'far fa-video-camer',
+        text: 'Video',
+        name: name
+    }
     let badgeColor = 'btn-success';
     if (status === 'overdue') {
         badgeColor = 'btn-error';
@@ -52,20 +66,43 @@ const Page = () => {
         badgeColor = 'btn-warning';
     }
 
-    function addTimeLine() {
-        const checkPerson = timeline.find(cp => cp.id === id);
-        console.log(checkPerson);
-        if (checkPerson) {
-            alert('already exist')
-            return
-        }
+    function phoneCall() {
+        // const checkPerson = timeline.find(cp => cp.id === id);
+        // if (checkPerson) {
+        //     alert('already exist')
+        //     return
+        // }
         
-        setTimeLine([...timeline, { ...friend }]);
-    }
+        toast.success('Phone Call ended!');
 
+        setTimeLine([...timeline, call]);
+    }
+    function textMessage() {
+        // const checkPerson = timeline.find(cp => cp.id === id);
+        // if (checkPerson) {
+        //     alert('already exist')
+        //     return
+        // }
+        toast.success('Message sent successfully!');
+        
+        setTimeLine([...timeline, message]);
+    }
+    function videoCall() {
+        toast.success('Video call ended!');
+        // const checkPerson = timeline.find(cp => cp.id === id);
+        // if (checkPerson) {
+        //     alert('already exist')
+        //     return
+        // }
+
+
+        setTimeLine([...timeline, video]);
+    }
+    // md:w-1/3 width of second card
     return (
-        <div className='mx-auto container gap-10 justify-center flex bg-base-200 mt-5 rounded-2xl w-[70%] p-5'>
-            <div className='text-center px-10 py-5 rounded-2xl bg-base-100 w-full md:w-1/3 justify-around'>
+        <div className='mx-auto container gap-10 justify-center grid md:grid-cols-2 bg-base-200 mt-5 rounded-2xl w-full sm:grid-cols-1 grid-cols-1 p-5'>
+            <div className='text-center px-10 py-5 rounded-2xl bg-base-100 w-full  justify-around'>
+            <ToastContainer />
                 <div>
                     <Image alt={name} src={picture} className='mx-auto rounded-full w-auto' width={100} height={100} />
                     <p className='my-3 font-bold text-xl'>{name}</p>
@@ -81,24 +118,24 @@ const Page = () => {
                     )}
                     <q className='block italic m-auto'>{bio}</q>
                 </div>
-                <div className='flex gap-2 mt-5 flex-col'>
+                <div className='flex container flex-wrap gap-2 mt-5 flex-col'>
                     <button className='btn bg-base-100'>
                         <span className='far fa-bell fa-slab'></span>
                         Snooz 2 weeks
                     </button>
-                    <button onClick={addTimeLine} className='btn bg-base-100'>
+                    <button className='btn bg-base-100'>
                         <i className='far fa-box-archive'></i>
                         Archive
                     </button>
-                    <button className='btn bg-base-100'>
+                    <button className='btn btn-error bg-base-100'>
                         <i className='far fa-trash'></i>
                         Delete
                     </button>
                 </div>
             </div>
 
-            <div className='px-2'>
-                <div className='px-2 mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+            <div className='px-2 row-span-2 grid-cols-1 grid  '>
+                <div className='md:px-2 md:mx-auto grid items-center grid-cols-1  lg:grid-cols-3 gap-10'>
                     <Stats title={'Days Since Contact'} stat={days_since_contact} />
                     <Stats title={'Goal (Days)'} stat={goal} />
                     <Stats title={'Next Due'} stat={next_due_date} />
@@ -114,6 +151,30 @@ const Page = () => {
                         </div>
                     </div>
                 </div>
+
+                <div className='bg-white p-6 rounded-2xl mt-5' >
+                    <h2 className='text-2xl font-semibold my-4 ms-6'> Quick check in</h2>
+                    <div className='grid grid-cols-3 gap-5 mt-5'>
+                        <button onClick={phoneCall} className='btn btn-lg flex-col bg-white shadow p-10 rows-span-7'>
+                            <br />
+                            <p className='far fa-phone '></p>
+                            <p>Call</p>
+                            <br />
+                        </button>
+                        <button onClick={textMessage} className='btn btn-lg flex-col bg-white shadow p-10'>
+                            <br />
+                            <p className='far fa-comment '></p>
+                            <p>Message</p>
+                            <br />
+                        </button>
+                        <button onClick={videoCall} className='btn btn-lg flex-col bg-white shadow  p-10'>
+                            <br />
+                            <p className='far fa-video-camera '></p>
+                            <p>Video</p>
+                            <br />
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -123,8 +184,8 @@ export const Stats = ({ title, stat }) => {
     return (
         <div className='stats shadow bg-base-100'>
             <div className='stat overflow-hidden'>
-                <div className={`${nunito.className} stat-value text-center text-2xl`}>{stat ?? 'N/A'}</div>
-                <div className={`${nunito.className} text-lg text-center stat-title`}>{title}</div>
+                <div className={`${nunito.className}   p-4 stat-value text-center text-2xl`}>{stat ?? 'N/A'}</div>
+                <div className={`${nunito.className} sm:text-sm p-4 text-lg text-center stat-title`}>{title}</div>
             </div>
         </div>
     );

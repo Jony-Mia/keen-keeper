@@ -4,7 +4,9 @@ import Image from 'next/image';
 import logo from "@/app/favicon.png"
 const Navbar = () => {
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className='bg-base-100 shadow-sm'>
+
+        <div className="navbar container mx-auto ">
             <div className="flex-1">
                 <Link href={"/"} className=" text-xl">
                     <Image src={logo} alt={"logo"} width={150} height={100} className={"mr-2"}/>
@@ -39,6 +41,7 @@ const Navbar = () => {
 
                 </ul>
             </div>
+        </div>
         </div>
     );
 };
