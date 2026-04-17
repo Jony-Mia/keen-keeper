@@ -10,7 +10,7 @@ const Friends = async () => {
 
     return (
         <>
-            <h1 className={` ${nunito.className} text-2xl font-bold text-center my-5`}>Your Friends</h1>
+            <h1 className={` ${nunito.className} text-4xl font-bold text-center my-5`}>Your Friends</h1>
             <div className='grid md:grid-cols-4 grid-cols-2 sm:grid-cols-1 lg:grid-cols-6 gap-10 container m-auto'>
                 {
                     res.map(fr => {
@@ -47,7 +47,7 @@ export const Card = ({ name, id, image, status, tags, contact }) => {
                             return <div key={index} className="badge badge-success badge-soft  mx-2">{tag}</div>;
                         })
                         } */}
-                         <div className="badge badge-success badge-soft  mx-2">{tags[0]}</div>
+                        <div className="badge badge-success badge-soft  mx-2">{tags[0]}</div>
                     </div>
                 </div>
             </div>
