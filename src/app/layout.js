@@ -7,29 +7,12 @@ import "@/assets/Fontawesome-Pro/fonts/duotone-regular.css"
 import "@/assets/Fontawesome-Pro/fonts/duotone.css"
 import "@/assets/Fontawesome-Pro/fonts/etch-solid.css"
 import "@/assets/Fontawesome-Pro/fonts/fontawesome.css"
-import "@/assets/Fontawesome-Pro/fonts/jelly-duo-regular.css"
-import "@/assets/Fontawesome-Pro/fonts/jelly-fill-regular.css"
-import "@/assets/Fontawesome-Pro/fonts/jelly-regular.css"
 import "@/assets/Fontawesome-Pro/fonts/light.css"
-import "@/assets/Fontawesome-Pro/fonts/notdog-duo-solid.css"
-import "@/assets/Fontawesome-Pro/fonts/notdog-solid.css"
 import "@/assets/Fontawesome-Pro/fonts/regular.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-duotone-light.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-duotone-regular.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-duotone-solid.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-duotone-thin.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-light.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-regular.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-solid.css"
-import "@/assets/Fontawesome-Pro/fonts/sharp-thin.css"
-import "@/assets/Fontawesome-Pro/fonts/slab-press-regular.css"
-import "@/assets/Fontawesome-Pro/fonts/slab-regular.css"
 import "@/assets/Fontawesome-Pro/fonts/solid.css"
-import "@/assets/Fontawesome-Pro/fonts/thumbprint-light.css"
-import "@/assets/Fontawesome-Pro/fonts/utility-duo-semibold.css"
-import "@/assets/Fontawesome-Pro/fonts/utility-fill-semibold.css"
-import "@/assets/Fontawesome-Pro/fonts/utility-semibold.css"
-import "@/assets/Fontawesome-Pro/fonts/whiteboard-semibold.css"
+
+
+
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 import  TimeContext  from "@/state/timeContext";
@@ -51,11 +34,9 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full bg-[#f8fafc] flex flex-col">
         <Navbar />
         <TimeContext>
           {children}

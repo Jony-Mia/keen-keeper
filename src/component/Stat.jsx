@@ -8,7 +8,7 @@ const Stat = async () => {
     let almostDue = res.filter(fr => fr.status == "almost due");
 
     return (
-        <div className=' mx-auto container grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-10 my-10  '>
+        <div className=' mx-auto container grid grid-cols-2  sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 gap-10 my-10 px-4 '>
             <Stats title={"Total"} stat={res.length} />
             <Stats title={"On Track"} stat={track.length} />
             <Stats title={"Need Attention"} stat={overdue.length} />

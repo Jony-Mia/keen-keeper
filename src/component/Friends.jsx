@@ -11,7 +11,7 @@ const Friends = async () => {
     return (
         <>
             <h1 className={` ${nunito.className} text-4xl font-bold text-center my-5`}>Your Friends</h1>
-            <div className='grid md:grid-cols-4 grid-cols-2 sm:grid-cols-1 lg:grid-cols-6 gap-10 container m-auto'>
+            <div className='grid md:grid-cols-4 px-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-6  gap-10 container m-auto'>
                 {
                     res.map(fr => {
                         return <Card key={fr.id} id={fr.id} name={fr.name} image={fr.picture} status={fr.status} contact={fr.days_since_contact} tags={fr.tags} />;
@@ -34,7 +34,7 @@ export const Card = ({ name, id, image, status, tags, contact }) => {
     return (
         <Link href={`/friends/${id}`}>
 
-            <div className="card bg-base-100 text-center shadow-sm">
+            <div className="card bg-base-100 text-center py-2.5  shadow-sm">
                 <Image alt={name} src={image} className='mx-auto rounded-full w-auto' width={100} height={100} />
                 <div className="card-body">
                     <h2 className="card-title  text-sm block">{name}</h2>
@@ -43,10 +43,6 @@ export const Card = ({ name, id, image, status, tags, contact }) => {
                         <button className={` ${badgeColor} rounded-full btn btn-sm mx-auto inline-block capitalize`}>{status}</button>
                     </div>
                     <div>
-                        {/* {tags.map((tag, index) => {
-                            return <div key={index} className="badge badge-success badge-soft  mx-2">{tag}</div>;
-                        })
-                        } */}
                         <div className="badge badge-success badge-soft  mx-2">{tags[0]}</div>
                     </div>
                 </div>

@@ -22,11 +22,8 @@ const MyPie = () => (
  */
 export default function PieChartInGrid() {
     return (
-        <div style={{ width: '40%' }} className='mx-auto'>
-            <p>
-                The <code>responsive</code> prop works well with CSS grid. The charts below are in a grid container. Resize the
-                window to see how they behave. Each chart is a grid item.
-            </p>
+        <div style={{ width: '40%' }} className='mx-auto mt-5'>
+            <p className='font-bold text-4xl text-center'> Chart </p>
             <div >
                 <PieChart
                     responsive

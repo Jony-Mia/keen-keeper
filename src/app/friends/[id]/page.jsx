@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const nunito = Nunito({ subsets: ['latin'], weight: '600' });
 
-document.body.style="background: #f8fafc";
+// document.body.style.backgroundColor = "#f8fafc";
 const Page = () => {
 
     const params = useParams();
@@ -32,7 +32,7 @@ const Page = () => {
 
     if (!friend) {
         return( <div className='text-center text-2xl font-bold'>Friend not found
-         <img src={"https://www.gtechme.com/wp-content/uploads/2025/05/Soft-404-Errors-What-They-Are-Why-They-Hurt-SEO-and-How-to-Fix-Them-image.jpg"} alt={"not found"} width={500} height={500} className={"mx-auto mt-5 rounded-lg shadow-lg"} />
+         <Image src={"https://www.gtechme.com/wp-content/uploads/2025/05/Soft-404-Errors-What-They-Are-Why-They-Hurt-SEO-and-How-to-Fix-Them-image.jpg"} alt={"not found"} width={500} height={500} className={"mx-auto mt-5 rounded-lg shadow-lg"} />
         
         </div>)
     }
