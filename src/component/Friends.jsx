@@ -34,7 +34,7 @@ export const Card = ({ name, id, image, status, tags, contact }) => {
     return (
         <Link href={`/friends/${id}`}>
 
-            <div className="card bg-base-100 text-center py-2.5  shadow-sm">
+            <div className="card bg-white text-center py-2.5  shadow-sm">
                 <Image alt={name} src={image} className='mx-auto rounded-full w-auto' width={100} height={100} />
                 <div className="card-body">
                     <h2 className="card-title  text-sm block">{name}</h2>

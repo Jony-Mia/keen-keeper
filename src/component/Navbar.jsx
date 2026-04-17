@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='bg-base-100 shadow block w-full'>
+        <div className='bg-base-100 bg-base-300 block w-full'>
             <div className="navbar container mx-auto ">
                 <div className="flex-1">
                     <Link href={"/"} className=" text-xl">
@@ -49,26 +49,20 @@ const Navbar = () => {
                     <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                         <li>
                             <Link href={"/"}>
-                                {/* <button className={`${path === "/" ? 'bg-[#0d542d] text-white' : ""}  btn btn-outline `}> */}
-                                    <span className='fa fa-home'></span>
-                                    Home
-                                {/* </button> */}
+                                <span className='fa fa-home'></span>
+                                Home
                             </Link>
                         </li>
                         <li>
                             <Link href={"/timeline"}>
-                                {/* <button className={` ${path === "/timeline" ? 'bg-[#0d542d] text-white' : ""} btn btn-outline`}> */}
-                                    <span className='fa fa-clock'></span>
-                                    Timeline
-                                {/* </button> */}
+                                <span className='fa fa-clock'></span>
+                                Timeline
                             </Link>
                         </li>
                         <li>
                             <Link href={"/stats"}>
-                                {/* <button className={` ${path === "/stats" ? 'bg-[#0d542d] text-white' : ""} btn btn-outline`}> */}
-                                    <i className="fa-sharp fa-solid fa-chart-area"></i>
-                                    Stats
-                                {/* </button> */}
+                                <i className="fa-sharp fa-solid fa-chart-area"></i>
+                                Stats
                             </Link>
                         </li>
                     </ul>
