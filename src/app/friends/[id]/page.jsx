@@ -32,7 +32,7 @@ const Page = () => {
 
     if (!friend) {
         return( <div className='text-center text-2xl font-bold'>Friend not found
-         <Image src={"https://www.gtechme.com/wp-content/uploads/2025/05/Soft-404-Errors-What-They-Are-Why-They-Hurt-SEO-and-How-to-Fix-Them-image.jpg"} alt={"not found"} width={500} height={500} className={"mx-auto mt-5 rounded-lg shadow-lg"} />
+         <img src={"https://www.gtechme.com/wp-content/uploads/2025/05/Soft-404-Errors-What-They-Are-Why-They-Hurt-SEO-and-How-to-Fix-Them-image.jpg"} alt={"not found"} width={500} height={500} className={"mx-auto mt-5 rounded-lg shadow-lg"} />
         
         </div>)
     }
@@ -87,7 +87,7 @@ const Page = () => {
             <div className='text-center px-10 py-5 rounded-2xl bg-white w-[30%]   shadow justify-around'>
                 <ToastContainer />
                 <div>
-                    <Image alt={name || null} src={picture || null} className='mx-auto rounded-full w-auto' width={100} height={100} />
+                    <img alt={name || null} src={picture || null} className='mx-auto rounded-full w-auto' width={100} height={100} />
                     <p className='my-3 font-bold text-xl'>{name}</p>
                     <p className={`${badgeColor} rounded-full btn-sm text-white btn`}>{status}</p><br />
                     {tags.length > 0 && (
