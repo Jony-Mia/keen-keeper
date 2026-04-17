@@ -84,7 +84,7 @@ const Page = () => {
     // md:w-1/3 width of second card
     return (
         <div className='mx-auto container gap-10 justify-center mt-8 flex-wrap rounded-2xl w-full flex p-5'>
-            <div className='text-center px-10 py-5 rounded-2xl bg-white w-[30%]   shadow justify-around'>
+            <div className='text-center px-10 py-5 rounded-2xl bg-white lg:w-[30%] w-full md:w-full  shadow justify-around'>
                 <ToastContainer />
                 <div>
                     <img alt={name || null} src={picture || null} className='mx-auto rounded-full w-auto' width={100} height={100} />
@@ -118,7 +118,7 @@ const Page = () => {
             </div>
 
             <div className='px-2 row-span-2 grid-cols-1 grid  '>
-                <div className='md:px-2 md:mx-auto grid items-center grid-cols-1  lg:grid-cols-3 gap-10'>
+                <div className='md:px-2 md:mx-auto grid items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10'>
                     <Stats title={'Days Since Contact'} stat={days_since_contact} />
                     <Stats title={'Goal (Days)'} stat={goal} />
                     <Stats title={'Next Due'} stat={next_due_date} />
@@ -168,7 +168,7 @@ export const Stats = ({ title, stat }) => {
         <div className='stats shadow bg-base-100 py-4 '>
             <div className='stat overflow-hidden flex flex-col justify-center items-center '>
                 <div className={`${nunito.className} font-bold stat-value text-center py-1 text-3xl`}>{stat ?? 'N/A'}</div>
-                <div className={`${nunito.className} sm:text-sm md:text-lg text-center  stat-title`}>{title}</div>
+                <div className={`${nunito.className} sm:text-sm md:text-lg text-center stat-title`}>{title}</div>
             </div>
         </div>
     );

@@ -16,7 +16,7 @@ const Navbar = () => {
                         <Image src={logo} alt={"logo"} width={150} height={100} className={"mr-2"} />
                     </Link>
                 </div>
-                <div className="flex-none">
+                <div className="flex-none hidden md:block">
                     <ul className=" flex gap-2.5 px-1">
                         <li>
                             <Link href={"/"}>
@@ -40,6 +40,35 @@ const Navbar = () => {
                                     <i className="fa-sharp fa-solid fa-chart-area"></i>
                                     Stats
                                 </button>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="dropdown block md:hidden dropdown-end dropdown-center">
+                    <button className="btn p-5 rounded-full m-1"> <span className='fa fa-bars text-2xl '></span> </button>
+                    <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                        <li>
+                            <Link href={"/"}>
+                                {/* <button className={`${path === "/" ? 'bg-[#0d542d] text-white' : ""}  btn btn-outline `}> */}
+                                    <span className='fa fa-home'></span>
+                                    Home
+                                {/* </button> */}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href={"/timeline"}>
+                                {/* <button className={` ${path === "/timeline" ? 'bg-[#0d542d] text-white' : ""} btn btn-outline`}> */}
+                                    <span className='fa fa-clock'></span>
+                                    Timeline
+                                {/* </button> */}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href={"/stats"}>
+                                {/* <button className={` ${path === "/stats" ? 'bg-[#0d542d] text-white' : ""} btn btn-outline`}> */}
+                                    <i className="fa-sharp fa-solid fa-chart-area"></i>
+                                    Stats
+                                {/* </button> */}
                             </Link>
                         </li>
                     </ul>
