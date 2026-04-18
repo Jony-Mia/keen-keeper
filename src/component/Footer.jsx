@@ -1,7 +1,7 @@
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-    weight:"400",
+    weight: "400",
 });
 const Footer = () => {
     return (
@@ -29,7 +29,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            
+
             <footer className={`${poppins.className} footer flex-wrap flex justify-between footer-center bg-neutral text-primary-content p-10`}>
                 <aside>
                     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>

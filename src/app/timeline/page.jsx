@@ -1,6 +1,6 @@
 "use client";
 import { TimeLineContextList } from '@/state/timeContext';
-import React, { useState, use, useContext, useEffect, Activity } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 const Page = () => {
     let [timeStatus, setTimeStatus] = useState(null);
@@ -15,7 +15,6 @@ const Page = () => {
             </div>
         )
     }
-    console.log(timeStatus);
 
     useEffect(() => {
         if (timeStatus === null) {
@@ -37,21 +36,16 @@ const Page = () => {
 
         } else if (timeStatus === "Call") {
             setTimeStatus("Call")
-
             setVisibility(false)
             setVisibility2(true)
         }
     }, [timeStatus])
 
-
     const filterTimeline = timeline.filter(time => time.text === timeStatus)
     const listFilter = [...new Map(timeline.map(item => [item.text, item])).values()];
 
-    console.log(listFilter);
-
     return (
-        <div className='container mx-auto bg-base-200 p-5'>
-
+        <div className='container rounded-2xl my-8 mx-auto bg-base-200 p-5'>
             <h1 className='text-2xl font-bold text-center my-5'>Timeline</h1>
             <div className="dropdown">
                 <button className="btn bg-white m-1">
@@ -65,12 +59,11 @@ const Page = () => {
                                 <li key={index} onClick={() => setTimeStatus(values.text)}><a>{values.text}</a></li>
                             )
                         })
-
                     }
                 </ul>
             </div>
 
-
+ 
             {visibility && <div >
                 {
                     timeline.map((values, index) => {
