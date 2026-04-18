@@ -14,8 +14,6 @@ import "@/assets/Fontawesome-Pro/fonts/solid.css"
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 import TimeContext from "@/state/timeContext";
-import ThemeContext from "@/state/themeContext";
-import Theme from "@/component/Theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,9 +36,7 @@ export default async function RootLayout({ children }) {
         <Navbar />
 
         <TimeContext>
-          <ThemeContext >
             {children}
-          </ThemeContext>
         </TimeContext>
 
         <Footer />

@@ -7,6 +7,7 @@
         <li>CSS</li>
         <li>Tailwind Css</li>
         <li>Daisy UI</li>
+        <li>JavaScript</li>
         <li>React JS</li>
         <li>Next JS</li>
         <li>Rechart</li>
